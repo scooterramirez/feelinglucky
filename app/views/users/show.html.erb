@@ -1,0 +1,13 @@
+
+<div class="container">
+<h1>Meet <%= @user.username %>, who has been liked <%= @user.likers_count %> times.</h1>
+<!-- <p>You can reach them at <%= @user.email %> </p> -->
+
+<p class = "lead"><%= link_to 'send a message', new_message_path(:user => @user.id) %></p>
+			
+<br>
+<%= link_to "back", users_path %>
+
+</div>
+
+

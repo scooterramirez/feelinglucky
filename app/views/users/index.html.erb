@@ -1,0 +1,27 @@
+<div class="container" style=" padding: 50px;" >
+
+<% @users.each do |lol| %>
+ <p style="border: solid #595959 3px; padding: 3em 1em 3em 1em; display: inline-block; float: left; margin: 1em; text-align: center;">
+	    <!--  User no.<%= lol.id %> -->
+	     <br>
+	    <strong><%= link_to lol.username, user_path(id: lol.id) %></strong>
+		<br>
+	    
+		 
+		 <br>
+		 this many likes: <%= lol.followers_count %>
+		 <br>
+		 <br>
+		 <%= link_to "Like |", follow_user_path(id: lol.id)%>
+		 <%= link_to 'Message', new_message_path(:user => lol.id) %> 
+		
+  </p>
+<% end %>
+
+<footer style="display: block; margin-top: 600px;">
+<h3>Here's who likes you</h3>
+  <% @current_user.followers.each do |this| %>
+  <%= link_to this.username, user_path(id: this.id) %>
+  <% end %>
+</footer>
+</div>
